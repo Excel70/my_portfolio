@@ -1,0 +1,3 @@
+@extends('layouts.admin')
+@section('heading', 'Good to see you')
+@section('content')<div class="stat-grid">@foreach($stats as $stat)<article class="stat-card"><p>{{ $stat['label'] }}</p><strong>{{ $stat['value'] }}</strong></article>@endforeach</div><section class="admin-panel"><div class="panel-heading"><h2>Recent messages</h2><a class="text-link" href="{{ route('admin.messages.index') }}">View all →</a></div>@if($messages->isNotEmpty())<div class="admin-list">@foreach($messages as $message)<article><div><strong>{{ $message->subject }}</strong><span>{{ $message->name }} · {{ $message->email }}</span></div><span class="status status-{{ $message->status }}">{{ $message->status }}</span></article>@endforeach</div>@else<p>No messages found.</p>@endif</section>@endsection

@@ -1,0 +1,3 @@
+@extends('layouts.public')
+@section('title', 'Skills | '.($settings['name'] ?? 'Portfolio'))
+@section('content')<section class="page-hero"><div class="shell"><p class="eyebrow">Skills</p><h1>A broad toolkit, grounded in real practice.</h1><p class="lead">I combine technical problem-solving with thoughtful design and clear communication.</p><div class="skill-groups">@forelse($skills as $category => $items)<section class="skill-group"><h2>{{ $category }}</h2><div class="skills-cloud">@foreach($items as $skill)<span title="{{ $skill->description }}">{{ $skill->name }}</span>@endforeach</div></section>@empty<p>No skills available yet.</p>@endforelse</div></div></section>@endsection

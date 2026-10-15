@@ -1,0 +1,3 @@
+@extends('layouts.public')
+@section('title', $article->title.' | '.($settings['name'] ?? 'Portfolio'))
+@section('content')<article class="page-hero article-detail"><div class="shell narrow"><a class="back-link" href="{{ route('articles.index') }}">← All writing</a><p class="eyebrow">{{ $article->category ?: 'Writing' }} · {{ $article->published_at?->format('d M Y') }}</p><h1>{{ $article->title }}</h1>@if($article->excerpt)<p class="lead">{{ $article->excerpt }}</p>@endif @if($article->featured_image)<img class="article-image" src="{{ asset('storage/'.$article->featured_image) }}" alt="{{ $article->title }}">@endif <div class="prose">{!! nl2br(e($article->content)) !!}</div></div></article>@endsection

@@ -1,0 +1,3 @@
+@extends('layouts.public')
+@section('title', 'Services | '.($settings['name'] ?? 'Portfolio'))
+@section('content')<section class="page-hero"><div class="shell"><p class="eyebrow">Services</p><h1>Flexible support for digital product work.</h1><p class="lead">Scope, priorities and delivery are always shaped around the actual problem.</p><div class="service-grid page-services">@forelse($services as $index => $service)<article class="service-card"><span class="number">0{{ $index + 1 }}</span><h2>{{ $service->title }}</h2><p>{{ $service->description }}</p></article>@empty<p>No services available yet.</p>@endforelse</div></div></section>@endsection
